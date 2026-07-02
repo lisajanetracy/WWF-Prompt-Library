@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WWF-Australia Philanthropy Prompt Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wwf-green:#2e7d4f;
+    --wwf-dark:#1c4d31;
+    --wwf-sage:#7fae8f;
+    --wwf-tint:#eaf3ed;
+    --ink:#23241f;
+    --muted:#6b6f66;
+    --paper:#f7f8f4;
+    --line:#dfe3d8;
+    --card:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'DM Sans',system-ui,sans-serif;line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  header{
+    background:linear-gradient(160deg,var(--wwf-dark),var(--wwf-green));
+    color:#fff;text-align:center;padding:2.6rem 1.2rem 2.2rem;
+  }
+  .panda{font-size:1.9rem;}
+  header h1{font-size:1.55rem;font-weight:700;margin:.5rem 0 .3rem;line-height:1.2;}
+  header p{margin:0;opacity:.9;font-size:.92rem;}
+
+  .howto{
+    max-width:820px;margin:1.6rem auto 0;background:var(--wwf-tint);
+    border-left:3px solid var(--wwf-green);border-radius:0 8px 8px 0;
+    padding:.9rem 1.2rem;font-size:.88rem;color:var(--wwf-dark);
+  }
+  .howto strong{color:var(--wwf-dark);}
+
+  nav.jump{
+    max-width:820px;margin:1.4rem auto 0;display:flex;flex-wrap:wrap;
+    gap:.4rem;justify-content:center;padding:0 1rem;
+  }
+  nav.jump a{
+    font-size:.78rem;color:var(--wwf-dark);background:#fff;border:1px solid var(--line);
+    padding:.35rem .7rem;border-radius:999px;text-decoration:none;white-space:nowrap;
+  }
+  nav.jump a:hover{background:var(--wwf-tint);}
+
+  main{max-width:820px;margin:0 auto;padding:1.6rem 1rem 4rem;}
+
+  section.category{margin-top:2.4rem;}
+  section.category h2{
+    font-size:1.1rem;color:var(--wwf-dark);border-bottom:2px solid var(--wwf-sage);
+    padding-bottom:.4rem;margin-bottom:.9rem;scroll-margin-top:1rem;
+  }
+
+  details.card{
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    margin-bottom:.7rem;overflow:hidden;
+  }
+  details.card[open]{border-color:var(--wwf-sage);}
+  summary{
+    list-style:none;cursor:pointer;padding:.85rem 1rem;
+    display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+    font-weight:600;font-size:.94rem;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary .tag{
+    font-weight:500;font-size:.72rem;color:var(--wwf-green);
+    background:var(--wwf-tint);padding:.15rem .55rem;border-radius:999px;
+    margin-left:.5rem;white-space:nowrap;
+  }
+  summary .title-wrap{display:flex;align-items:center;flex-wrap:wrap;gap:.3rem;}
+  summary .chev{color:var(--muted);transition:transform .15s ease;flex-shrink:0;}
+  details[open] summary .chev{transform:rotate(90deg);}
+
+  .card-body{padding:0 1rem 1rem;}
+  textarea.prompt-text{
+    width:100%;min-height:110px;border:1px solid var(--line);border-radius:8px;
+    padding:.7rem .8rem;font-family:'DM Sans',sans-serif;font-size:.87rem;
+    color:var(--ink);background:#fbfbf9;resize:vertical;line-height:1.5;
+  }
+  textarea.prompt-text:focus{outline:2px solid var(--wwf-sage);outline-offset:1px;}
+  .actions{display:flex;gap:.5rem;margin-top:.6rem;flex-wrap:wrap;}
+  button.copy-btn, button.reset-btn{
+    font-family:inherit;font-size:.82rem;font-weight:600;border-radius:7px;
+    padding:.5rem 1rem;cursor:pointer;border:1px solid transparent;
+  }
+  button.copy-btn{background:var(--wwf-green);color:#fff;}
+  button.copy-btn:hover{background:var(--wwf-dark);}
+  button.copy-btn.copied{background:var(--wwf-dark);}
+  button.reset-btn{background:#fff;color:var(--muted);border-color:var(--line);}
+  button.reset-btn:hover{border-color:var(--wwf-sage);color:var(--wwf-dark);}
+  .tip{
+    margin-top:.7rem;font-size:.8rem;color:var(--wwf-dark);background:var(--wwf-tint);
+    border-radius:7px;padding:.55rem .75rem;
+  }
+
+  footer{
+    text-align:center;color:var(--muted);font-size:.78rem;
+    padding:2rem 1rem 2.6rem;border-top:1px solid var(--line);margin-top:1rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="panda">🐼</div>
+  <h1>WWF-Australia Philanthropy<br>Prompt Library</h1>
+  <p>AI prompts for the major gifts and philanthropy team — built for Copilot</p>
+</header>
+
+<div class="howto">
+  <strong>How to use this library:</strong> click any prompt to expand it. Fill in the
+  <em>[bracketed placeholders]</em> in the text box, then select <strong>Copy to Copilot</strong>.
+  Paste into Copilot and run. Select <strong>Reset</strong> to return a prompt to its original wording.
+</div>
+
+<nav class="jump">
+  <a href="#donor-comms">Donor Communications</a>
+  <a href="#strategy">Strategy &amp; Planning</a>
+  <a href="#reporting">Internal &amp; Reporting</a>
+  <a href="#writing">Writing &amp; Editing</a>
+  <a href="#decision">Decision Support</a>
+  <a href="#project">Project Design</a>
+  <a href="#meetings">Meetings &amp; Collaboration</a>
+  <a href="#creativity">Creativity &amp; Brainstorming</a>
+  <a href="#research">Research &amp; Synthesis</a>
+  <a href="#workflow">Workflow Design</a>
+  <a href="#comms">Communication &amp; Messaging</a>
+  <a href="#career">Career Development</a>
+  <a href="#optimise">Getting Better Results</a>
+</nav>
+
+<main>
+
+<!-- ============ DONOR COMMUNICATIONS ============ -->
+<section class="category" id="donor-comms">
+  <h2>Donor Communications</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Major Donor Stewardship Email <span class="tag">Email</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a senior philanthropy relationship manager at a leading conservation NGO.
+
+Draft a warm, personal stewardship email to [donor name], who gave [gift amount] to support [Sky / Country / Saltwater] at WWF-Australia.
+
+Include:
+- A genuine, specific thank you (not generic)
+- One concrete impact update from their gift
+- A soft next-step or engagement opportunity
+- A warm, human close
+
+Tone: warm and personal, not corporate. Under 200 words. Sign off as [your name], [your title], WWF-Australia.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+      <div class="tip">💡 Add a specific project or programme detail before sending to Copilot for best results.</div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Prospect Research Brief <span class="tag">Research</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a philanthropic intelligence analyst.
+
+Create a one-page prospect brief on [prospect name / organisation] for WWF-Australia's major gifts team.
+
+Cover:
+- Known philanthropic interests and past giving
+- Business background and wealth indicators
+- Likely connection to conservation or climate
+- Recommended WWF pillar alignment (Sky, Country, or Saltwater)
+- Suggested first engagement approach
+- Any risks or sensitivities to note
+
+Keep each section to 2–3 sentences. Flag any gaps in available information.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+      <div class="tip">💡 Works well after summits, conferences, or introductions through existing donors.</div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Donor Renewal Proposal <span class="tag">Proposal</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a philanthropic partnerships writer for a conservation organisation.
+
+Draft a renewal proposal for [donor / foundation name] to continue their support of [programme / pillar] at WWF-Australia.
+
+Structure:
+1. Impact of their previous investment (2–3 sentences)
+2. What we are asking for and why now (1 paragraph)
+3. Specific outcomes their next gift will enable
+4. A compelling close with clear call to action
+
+Tone: confident, evidence-based, and relationship-centred. Avoid jargon. Under 400 words.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Meeting Debrief &amp; Follow-Up Plan <span class="tag">Planning</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a relationship management adviser.
+
+I just met with [name / organisation]. Here are my notes:
+
+[paste raw meeting notes here]
+
+Please:
+1. Summarise the key relationship intelligence in 5 bullet points
+2. Identify the top 2–3 follow-up actions with suggested owners and timeframes
+3. Flag any risks, objections, or sensitivities raised
+4. Suggest a subject line and 2-sentence follow-up email opener
+
+Keep it crisp — this will go into our CRM.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+      <div class="tip">💡 Great after cultivation dinners, summits, or stakeholder calls.</div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ STRATEGY & PLANNING ============ -->
+<section class="category" id="strategy">
+  <h2>Strategy &amp; Planning</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">NextGen Donor Engagement Strategy <span class="tag">Strategy</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a philanthropy strategist specialising in next-generation donor engagement.
+
+Help me develop a NextGen donor strategy for WWF-Australia. Our target cohort is: [describe — e.g. 25–40, values-led, high net worth, climate-engaged].
+
+Suggest:
+- 3 engagement touchpoints suited to this cohort
+- 1 signature experience or event concept
+- How to connect them to Sky, Country, or Saltwater pillars
+- A pathway from first engagement to a meaningful gift
+- Metrics to track progress
+
+Keep recommendations practical and implementable within a small team.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Partnership Concept Note <span class="tag">Partnerships</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a strategic partnerships writer for an environmental NGO.
+
+Draft a concept note for a potential partnership between WWF-Australia and [organisation name].
+
+Context: [brief description of the organisation and the connection]
+
+Include:
+- Shared values and alignment
+- What each party brings
+- Proposed partnership structure (1–2 options)
+- Potential conservation impact
+- Suggested next step
+
+Under 500 words. Tone: collaborative and visionary, grounded in outcomes.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ INTERNAL & REPORTING ============ -->
+<section class="category" id="reporting">
+  <h2>Internal &amp; Reporting</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Pipeline Update for Leadership <span class="tag">Reporting</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a philanthropy manager preparing a pipeline update for the leadership team.
+
+Here is my current pipeline data:
+
+[paste pipeline details — names, amounts, stages, notes]
+
+Draft a concise pipeline summary that:
+- Opens with the total pipeline value and headline wins
+- Groups prospects by stage (cultivation, solicitation, stewardship)
+- Flags any urgent actions or risks
+- Ends with a 30-day priority list
+
+Use plain English. No jargon. Suitable for a busy CEO or Board member.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Board / Executive Briefing Note <span class="tag">Briefing</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Act as a senior adviser drafting a briefing note for WWF-Australia's executive team.
+
+Topic: [e.g. major gift renewal / summit outcomes / new prospect opportunity]
+
+Briefing note should include:
+- Purpose (1 sentence)
+- Background (2–3 sentences)
+- Current situation and key facts
+- Recommended action or decision required
+- Any risks or dependencies
+
+Format: formal briefing note. Under 300 words. Clear headings. Active voice throughout.</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ WRITING & EDITING ============ -->
+<section class="category" id="writing">
+  <h2>Writing &amp; Editing</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Rewrite for Clarity <span class="tag">Editing</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Rewrite the following so it's easier to understand. Keep the meaning the same, but simplify the structure and wording.
+
+Text: [insert original paragraph or sentence here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Adjust Tone for a Specific Audience <span class="tag">Editing</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Edit the message below to match the tone of a [type of audience, e.g. executive, peer, client]. Keep the core message, but adjust word choice, formality, and pacing to fit the audience.
+
+Original: [insert message here]
+Audience: [insert audience type here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Make Writing More Concise <span class="tag">Editing</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Edit the following content to reduce word count while keeping the key ideas intact. Keep it under [X] words.
+
+Text: [insert original paragraph or email here]
+Word limit: [e.g. 100 words]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Summarise or Distil Key Points <span class="tag">Editing</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Summarise the following text into three to five bullet points. Focus on the main ideas, not the details.
+
+Content: [insert text here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Reformat into a Different Medium <span class="tag">Editing</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Take this message and reformat it as a [new format: e.g. email, slide, memo, tweet]. Keep the same information, but change the structure and tone to match the format.
+
+Original message: [insert content here]
+Target format: [insert desired format]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Expand Notes into a First Draft <span class="tag">Editing</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Take the outline or notes below and expand it into a complete first draft. Use a clear, professional tone and structure the draft in paragraphs.
+
+Outline or notes:
+- [Bullet 1]
+- [Bullet 2]
+- [Bullet 3]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ DECISION SUPPORT ============ -->
+<section class="category" id="decision">
+  <h2>Strategy &amp; Decision Support</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Outline a Decision Framework <span class="tag">Strategy</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Create a structured decision-making framework for the question below. Include three to five guiding questions and any relevant factors to consider.
+
+Decision to make: [insert decision or challenge here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">List Pros and Cons of Two Options <span class="tag">Strategy</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Compare the two options below. List three pros and three cons for each. Keep the analysis concise and balanced.
+
+Option A: [insert first option]
+Option B: [insert second option]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Generate Scenarios and Risks <span class="tag">Strategy</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">List three possible scenarios based on the plan below. For each one, include a short description and the main risk associated with it.
+
+Plan or decision: [insert summary of plan or strategy here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Identify Blind Spots or Assumptions <span class="tag">Strategy</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Review the plan below and identify potential blind spots, untested assumptions, or areas that may need more clarity or input.
+
+Plan or idea: [insert text or summary of plan here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Build a SWOT Analysis <span class="tag">Strategy</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Build a SWOT analysis for the following project or idea. Include two to three points in each quadrant: Strengths, Weaknesses, Opportunities, and Threats.
+
+Topic: [insert project, strategy, or idea here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Compare Current Plan to Known Best Practice <span class="tag">Strategy</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Give two to three examples of how other organisations or teams have approached a challenge similar to the one described below. Highlight key takeaways or lessons learned.
+
+Challenge: [insert problem or opportunity here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ PROJECT DESIGN ============ -->
+<section class="category" id="project">
+  <h2>Planning &amp; Project Design</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Break a Goal into Phases <span class="tag">Planning</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Break the following goal into three clear phases. For each phase, include a short description and two to three key actions.
+
+Goal: [insert goal or project here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Create a Prioritised Checklist <span class="tag">Planning</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Turn the following task list into a checklist, ordered by priority. Mark anything that's time-sensitive or blocking other steps.
+
+Task list:
+- [Item 1]
+- [Item 2]
+- [Item 3]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Build a Timeline from Unordered Steps <span class="tag">Planning</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Organise these project steps into a logical sequence with estimated time for each one. Present it as a basic timeline.
+
+Steps:
+- [Step 1]
+- [Step 2]
+- [Step 3]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Reorganise Tasks by Dependency <span class="tag">Planning</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Reorganise the following tasks based on dependencies. Show which steps need to happen first and which can run in parallel.
+
+Tasks: [list tasks here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Identify Missing Steps in a Plan <span class="tag">Planning</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Review this rough plan and suggest any missing steps. Keep your suggestions practical and action-focused.
+
+Draft plan: [insert outline or summary here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Draft a Milestone Chart <span class="tag">Planning</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Create a milestone chart for this project. Include four to six milestones with names, expected timing, and a one-line description for each.
+
+Project description: [insert short project summary here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ MEETINGS ============ -->
+<section class="category" id="meetings">
+  <h2>Meetings &amp; Collaboration</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Draft a Meeting Agenda <span class="tag">Meetings</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Create a focused agenda for the following meeting. Include three to five discussion points, any time estimates, and note who's leading each item.
+
+Meeting purpose: [insert topic or goal of meeting]
+Length: [insert duration, e.g. 30 or 60 minutes]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Summarise Meeting Notes with Action Items <span class="tag">Meetings</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Turn these meeting notes into a clear summary. Include key takeaways and a list of action items with assigned owners and deadlines.
+
+Notes: [insert raw notes or transcript here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Suggest a Follow-Up Message After a Sync <span class="tag">Meetings</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Write a follow-up message for the meeting described below. Recap what was decided and share next steps in a clear, professional tone.
+
+Meeting summary: [insert a few lines or bullet points]
+Audience: [insert recipient or group, e.g. team, client]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Draft Talking Points for a Meeting <span class="tag">Meetings</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Create talking points for the following meeting. Include three to four key messages, framed clearly and concisely.
+
+Topic: [insert topic or objective]
+Audience: [insert internal/external/stakeholder group]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Clarify Roles or Ownership <span class="tag">Meetings</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Review this project or meeting plan and clarify who owns what. Create a short list of responsibilities assigned by person or role.
+
+Plan: [insert summary or task list]
+Team members: [insert list of names or roles]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Rewrite a Meeting Recap in Bullet Form <span class="tag">Meetings</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Rewrite the following meeting recap as a clean, skimmable bullet list. Keep it structured: outcomes, decisions, and follow-ups.
+
+Original text: [insert meeting recap or notes]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ CREATIVITY ============ -->
+<section class="category" id="creativity">
+  <h2>Creativity &amp; Brainstorming</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Generate Creative Variations on a Theme <span class="tag">Ideas</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Give me five creative variations on the following concept. Aim for range — each version should explore a slightly different angle or tone.
+
+Concept: [insert topic, phrase, or idea]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Write Alternate Titles or Subject Lines <span class="tag">Ideas</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Suggest five alternate titles or subject lines for the following content. Include a mix of tones (e.g. bold, clever, straightforward).
+
+Content: [insert topic or short summary]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Rewrite a Message in Different Tones <span class="tag">Ideas</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Rewrite the following text in three different tones: professional, playful, and persuasive. Keep the meaning consistent in each version.
+
+Text: [insert original copy or message]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Remix a Paragraph for a Different Audience <span class="tag">Ideas</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Adapt this content for a new context. Change the voice, length, and style to fit [insert audience or format].
+
+Original: [insert content here]
+Target: [e.g. Instagram post, donor memo, internal note]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Use a Metaphor or Analogy to Explain <span class="tag">Ideas</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Explain this concept using a metaphor or analogy. Aim for something unexpected but clear.
+
+Concept: [insert topic or explanation]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Brainstorm Content or Campaign Directions <span class="tag">Ideas</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Brainstorm five content or campaign ideas based on the following goal. Include a one-line rationale for each idea.
+
+Goal: [insert campaign or project goal]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ RESEARCH & SYNTHESIS ============ -->
+<section class="category" id="research">
+  <h2>Research &amp; Synthesis</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Summarise a Long Text in Bullet Points <span class="tag">Research</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Summarise the following content into four to six bullet points. Focus on the most important ideas or arguments. Skip filler and repetition.
+
+Text: [insert long article, report, or notes]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Compare Two Documents and List Differences <span class="tag">Research</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Compare the two summaries below. List three to four key similarities and three to four differences in framing, content, or conclusions.
+
+Source A: [insert text or summary]
+Source B: [insert text or summary]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Highlight Risks or Open Questions in a Proposal <span class="tag">Research</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Review the following draft or document. Identify areas that are unclear, unsupported, or missing context. List three to five open questions.
+
+Content: [insert paragraph, proposal, or summary]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Create a Quick-Read Executive Brief <span class="tag">Research</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Turn this information into a one-paragraph executive summary. Keep it factual and tight. No more than 100 words.
+
+Input: [insert notes or source material]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Extract Main Arguments from a Discussion <span class="tag">Research</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Identify the main arguments in the following text. List them in a neutral tone as stand-alone bullet points.
+
+Text: [insert opinion piece, internal memo, or article excerpt]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Identify Trends or Patterns in Notes <span class="tag">Research</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Review the following notes and group them into three to four high-level themes. Use clear, specific labels for each theme.
+
+Notes:
+- [Note 1]
+- [Note 2]
+- [Note 3]
+- [Note 4]
+- [Note 5]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ WORKFLOW DESIGN ============ -->
+<section class="category" id="workflow">
+  <h2>Productivity &amp; Workflow Design</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Turn a Routine Task into a Reusable Prompt <span class="tag">Workflow</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Turn this task into a prompt I can use again in the future. Keep it flexible but clear enough to get consistent results.
+
+Task: [insert recurring task or request here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Create a Template for Repeat Communication <span class="tag">Workflow</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Create a prompt template I can use for sending [type of message, e.g. weekly updates, project status reports, donor check-ins]. Include placeholders where needed.
+
+Message type: [insert message type or example]
+Key points to include: [insert a short list or bullets]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Generate a Checklist for a Recurring Process <span class="tag">Workflow</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Create a checklist for this recurring task. Include five to seven steps, ordered logically. Make it easy to scan and reuse.
+
+Task: [insert the workflow or routine task here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Convert Rough Notes into a Clear System <span class="tag">Workflow</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Take the rough notes below and turn them into a clean process I can follow. List steps, group related tasks, and suggest how to track progress.
+
+Notes: [insert unordered steps or ideas]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Suggest Ways to Automate a Task <span class="tag">Workflow</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Review the following task and suggest two to three ways to simplify, automate, or structure it to save time.
+
+Task or process: [insert description here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Draft a Prompt for a Colleague to Use <span class="tag">Workflow</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Write a reusable prompt that someone else on my team could use to complete the following task. Include clear instructions and a sample input.
+
+Task: [insert task or outcome]
+Audience: [insert team member role or context]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ COMMUNICATION & MESSAGING ============ -->
+<section class="category" id="comms">
+  <h2>Communication &amp; Messaging</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Rewrite a Note for Clarity and Professionalism <span class="tag">Comms</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Rewrite the message below to sound clear, direct, and professional. Keep the main idea intact, but improve flow and phrasing.
+
+Original message: [insert message here]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Adapt a Message for Three Audiences <span class="tag">Comms</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Write three versions of this message: one for a peer, one for a donor, and one for a senior leader. Keep the core message consistent.
+
+Message: [insert original text or update]
+Audience types: [insert, e.g. peer, donor, executive]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Soften a Sensitive Message <span class="tag">Comms</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Rewrite this message to soften the tone while keeping it honest. Aim for thoughtful, respectful language.
+
+Message: [insert sensitive or difficult message]
+Context: [optional: reason or background]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Restructure a Long Message <span class="tag">Comms</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Edit the message below to improve structure, reduce repetition, and make it easier to scan. Break it into short, clear paragraphs or bullets where needed.
+
+Text: [insert long email, Teams message, or memo]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Explain Something Complex Simply <span class="tag">Comms</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Rephrase this explanation so it's easier to understand. Use clear, everyday language. Assume the reader has no background in the topic.
+
+Topic: [insert explanation or paragraph]
+Audience: [insert, e.g. new hire, cross-functional partner]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Draft a Response to Feedback or Criticism <span class="tag">Comms</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Draft a thoughtful response to the feedback below. Acknowledge the input, clarify your position if needed, and close with a clear next step or question.
+
+Feedback: [insert comment or concern]
+Tone: [insert, e.g. appreciative, open, clarifying]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ CAREER DEVELOPMENT ============ -->
+<section class="category" id="career">
+  <h2>Career Development &amp; Growth</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Reflect on Strengths and Development Areas <span class="tag">Career</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Based on the goals below, help me identify my core strengths and one area I could focus on improving.
+
+Goals: [insert personal or professional growth goals]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Draft a Personal Growth Plan <span class="tag">Career</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Help me create a personal growth plan with three goals, one key habit to build, and a monthly check-in question.
+
+Focus area: [insert, e.g. leadership, communication, strategic thinking]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Summarise Feedback Trends <span class="tag">Career</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Review the feedback below and summarise the recurring themes. Note any areas of strength and any consistent suggestions for improvement.
+
+Feedback:
+- [Feedback 1]
+- [Feedback 2]
+- [Feedback 3]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Prepare Talking Points for a Career Conversation <span class="tag">Career</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Help me prepare for a career conversation with my manager. Include three to four talking points: what's going well, what I want to grow into, and where I'd like more support.
+
+Context: [insert current role or upcoming discussion]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Reframe a Career Challenge or Decision <span class="tag">Career</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Help me reframe the challenge below and suggest a few ways to move forward. Keep it honest and practical.
+
+Challenge: [insert situation or decision you're navigating]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Generate Questions for a Mentor or Peer <span class="tag">Career</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Suggest five thoughtful questions I could ask a mentor or peer in a one-on-one conversation about growth or direction.
+
+Context: [insert goal or theme of conversation]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ GETTING BETTER RESULTS ============ -->
+<section class="category" id="optimise">
+  <h2>Getting Better Results from Copilot</h2>
+
+  <details class="card">
+    <summary><span class="title-wrap">Improve This Prompt <span class="tag">Meta</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Here's a prompt I tried. Help me rewrite it to be more clear, specific, and likely to produce a stronger result.
+
+Original prompt: [insert original version]
+Goal: [insert what you want Copilot to do]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Explain Why a Prompt Didn't Work <span class="tag">Meta</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Here's a prompt and the response I got. Help me understand what might have gone wrong and how to improve it.
+
+Prompt: [insert input]
+Response: [insert result or issue]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Suggest a Prompt for a New Task <span class="tag">Meta</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Suggest a strong prompt for the task below. Assume I've never prompted this before.
+
+Task: [insert task or goal]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Create a Reusable Prompt Template <span class="tag">Meta</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Create a reusable prompt template I can copy and fill in whenever I'm doing this type of task. Include clear placeholder labels.
+
+Task type: [insert type of recurring task]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Diagnose an Incomplete Output <span class="tag">Meta</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">The response was off-track, too short, or missing key information. Review the prompt below and suggest how to adjust it.
+
+Prompt: [insert original]
+Problem: [insert, e.g. missing steps, unclear tone, irrelevant answer]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Explain What Makes a Prompt Strong <span class="tag">Meta</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Explain what makes a prompt strong. Use this one as a starting point, and walk me through what works and what could be improved.
+
+Prompt: [insert any prompt example]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary><span class="title-wrap">Write in a Natural, Human Style <span class="tag">Meta</span></span><span class="chev">▶</span></summary>
+    <div class="card-body">
+      <textarea class="prompt-text">Do not use writing conventions that feel overly AI-generated or generic. Specifically, avoid:
+- Excessive em-dashes and ellipses
+- The structure "It's not X, it's Y" or similar artificially balanced contrasts
+- Generic openers ("In today's world"; "Now more than ever"; "It's no secret")
+- Grandiose or salesy language ("redefining the future"; "unparalleled success")
+- Overuse of rhetorical questions
+- Passive-voice generalisations ("mistakes were made"; "studies have shown")
+- Business jargon (synergy, leverage, paradigm shift)
+- Predictable closing lines ("Ultimately, the choice is yours")
+
+Instead, prioritise precise, specific, editorially refined language that reads as natural human writing.
+
+Apply this to: [insert text to rewrite, or task to complete]</textarea>
+      <div class="actions"><button class="copy-btn" onclick="copyPrompt(this)">Copy to Copilot</button><button class="reset-btn" onclick="resetPrompt(this)">Reset</button></div>
+      <div class="tip">💡 Paste this as a standing instruction in Copilot's Personalisation settings so it applies to everything, not just one task.</div>
+    </div>
+  </details>
+</section>
+
+</main>
+
+<footer>WWF-Australia Philanthropy Team · Built for Microsoft Copilot · Not for external distribution</footer>
+
+<script>
+function copyPrompt(btn){
+  const body = btn.closest('.card-body');
+  const textarea = body.querySelector('textarea.prompt-text');
+  navigator.clipboard.writeText(textarea.value).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1600);
+  });
+}
+function resetPrompt(btn){
+  const body = btn.closest('.card-body');
+  const textarea = body.querySelector('textarea.prompt-text');
+  textarea.value = textarea.defaultValue;
+}
+</script>
+
+</body>
+</html>
